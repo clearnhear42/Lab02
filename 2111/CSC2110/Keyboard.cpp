@@ -1,4 +1,5 @@
 #include "Keyboard.h"
+using CSC2110::Keyboard;
 #include <iostream>
 
 Keyboard::Keyboard()

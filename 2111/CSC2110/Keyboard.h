@@ -2,9 +2,12 @@
 #define KEYBOARD_H
 
 #include "Text.h"
+using CSC2110::String;
 #include <string>
 using namespace std;
 
+namespace CSC2110
+{
 class Keyboard
 {
    private:
@@ -29,6 +32,7 @@ double getValidatedDouble(string prompt, double min, double max);
 //post: the text read from the keyboard is copied into the storage string
 String* readString(string prompt);
 };
+}
 
 #endif
 

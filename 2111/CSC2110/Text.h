@@ -1,6 +1,8 @@
 #if !defined STRING_H
 #define STRING_H
 
+namespace CSC2110
+{
 class String
 {
    private:
@@ -12,7 +14,7 @@ class String
       virtual ~String();
       void displayString();
       int length();
-      const char* getText();
+      char* getText();
 
       //add this member function
       char charAt(int index);
@@ -48,5 +50,6 @@ class String
       int compare(String* other);
 
 };
+}
 
 #endif

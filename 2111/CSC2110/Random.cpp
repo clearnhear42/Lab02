@@ -1,33 +1,10 @@
 #include "Random.h"
+using CSC2110::Random;
 
 #include <time.h>
 #include <stdlib.h>
 
-Random::Random()
-{
-   randomInit();
-}
-
-Random::~Random()
-{
-}
-
-Random* Random::getRandom()
-{
-   static Random random;  //initialized when method is called the first time
-   return &random;  
-}
-
-void Random::randomInit()
-{
-   srand (time(NULL));
-
-   //try to get a more random starting number
-   rand();
-   rand();
-   rand();
-   rand();
-}
+Random::Random() : rand_mother(rand()){};
 
 int Random::getRandomInt(int lower, int upper)
 {

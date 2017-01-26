@@ -1,4 +1,5 @@
 #include "Text.h"
+using CSC2110::String;
 
 #include <stdlib.h>  //needed for atoi and atof
 #include <cstring>   //needed for strlen and strcmp
@@ -30,9 +31,16 @@ char String::charAt(int index)
    return text[index];
 }
 
-const char* String::getText()
+char* String::getText()
 {
-   return text;
+   int sz = strlen(text);
+   char* char_array = new char[sz+1];
+   for (int i = 0; i < sz; i++)
+   {
+      char_array[i] = text[i];
+   }
+   char_array[sz] = 0;  //null terminator
+   return char_array;
 }
 
 int String::length()
@@ -85,6 +93,7 @@ String* String::substr(int start, int end)
    sub_text[count] = 0;
 
    String* sub = new String((const char*) sub_text);
+   delete sub_text;
    return sub;
 }
 
@@ -103,7 +112,9 @@ String* String::i_to_a(int number)
    stringstream out;
    out << number;
    const char* text = out.str().c_str();
-   return new String(text);
+   String* str = new String(text);
+   delete text;
+   return str;
 }
 
 String* String::f_to_a(float number)
@@ -111,6 +122,7 @@ String* String::f_to_a(float number)
    stringstream out;
    out << number;
    const char* text = out.str().c_str();
-   return new String(text);
+   String* str = new String(text);
+   delete text;
+   return str;
 }
-
